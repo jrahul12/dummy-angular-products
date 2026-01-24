@@ -1,0 +1,87 @@
+<div class="container mt-4" *ngIf="product;else noProd">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+
+            <mat-card class="shadow-lg rounded-lg p-3">
+
+                <h4 class="mb-3">My Cart</h4>
+
+                <div class="row align-items-center border-bottom py-3">
+                    <div class="col-md-2 text-center">
+                        <img [src]="product.image" class="img-fluid" style="max-height: 80px; object-fit: contain;" />
+                    </div>
+
+                    <div class="col-md-4">
+                        <h6 class="m-0">{{ product.title }}</h6>
+                        <small class="text-muted">{{ product.category }}</small>
+                        <div class="mt-1">
+                            <span class="badge badge-success"> {{ product.rating.rate }}</span>
+                            <small class="text-muted">({{ product.rating.count }})</small>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 text-center">
+                        <div class="input-group input-group-sm">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" (click)="decrease()">-</button>
+                            </div>
+
+                            <input type="text" class="form-control text-center" [value]="qty" readonly>
+
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" (click)="increase()">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-2 text-center">
+                        <h6 class="m-0">₹ {{ product.price * qty }}</h6>
+                    </div>
+
+                    <div class="col-md-2 text-right">
+                        <button class="btn btn-sm btn-outline-danger" (click)="remove()">
+                            <i class="fas fa-trash"></i> Remove
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row justify-content-end mt-3">
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-between">
+                            <span>Subtotal</span>
+                            <strong>₹ {{ product.price * qty }}</strong>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Delivery</span>
+                            <strong>₹ 0</strong>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <span>Total</span>
+                            <strong>₹ {{ total }}</strong>
+                        </div>
+
+                        <button class="btn btn-primary btn-block mt-3" [routerLink]="['/buy']">
+                            Proceed to Checkout
+                        </button>
+                    </div>
+                </div>
+
+            </mat-card>
+
+        </div>
+    </div>
+</div>
+
+<ng-template #noProd>
+    <div class="container cart">
+        <button mat-raised-button color="warn" routerLink="">Back</button>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <span>
+                    <p class="alert alert-info">No Products Are Available</p>
+                </span>
+            </div>
+        </div>
+    </div>
+</ng-template>

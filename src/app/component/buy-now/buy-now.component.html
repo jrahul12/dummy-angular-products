@@ -1,0 +1,72 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <mat-card class="shadow-lg rounded-lg">
+
+        <h1
+          class="text-danger d-flex justify-content-end m-0 px-3"
+          routerLink=""
+          style="cursor: pointer;"
+        >
+          <strong>×</strong>
+        </h1>
+
+        <mat-card-title class="px-3 pt-2">Select Payment Method</mat-card-title>
+
+        <mat-card-content class="px-3">
+
+          <div
+            class="pay-item d-flex align-items-center mb-3 p-2 border rounded"
+            [routerLink]="['/upi']"
+            style="cursor: pointer;"
+          >
+            <i class="fa fa-mobile-alt fa-lg mr-3 text-primary"></i>
+            <div>
+              <h6 class="m-0">UPI</h6>
+              <small class="text-muted">Pay using GPay, PhonePe, Paytm</small>
+            </div>
+          </div>
+
+          <div
+            class="pay-item d-flex align-items-center mb-3 p-2 border rounded"
+            [routerLink]="['/debit']"
+            style="cursor: pointer;"
+          >
+            <i class="fa fa-credit-card fa-lg mr-3 text-success"></i>
+            <div>
+              <h6 class="m-0">Debit / Credit Card</h6>
+              <small class="text-muted">Visa, MasterCard, RuPay</small>
+            </div>
+          </div>
+
+          <div
+            class="pay-item d-flex align-items-center mb-3 p-2 border rounded"
+            [routerLink]="['/net']"
+            style="cursor: pointer;"
+          >
+            <i class="fa fa-university fa-lg mr-3 text-warning"></i>
+            <div>
+              <h6 class="m-0">Net Banking</h6>
+              <small class="text-muted">All major banks supported</small>
+            </div>
+          </div>
+
+          <div
+            class="pay-item d-flex align-items-center mb-3 p-2 border rounded"
+            [routerLink]="['/cash']"
+            style="cursor: pointer;"
+          >
+            <i class="fa fa-money-bill-wave fa-lg mr-3 text-danger"></i>
+            <div>
+              <h6 class="m-0">Cash on Delivery</h6>
+              <small class="text-muted">Pay when product arrives</small>
+            </div>
+          </div>
+
+        </mat-card-content>
+      </mat-card>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <mat-card class="shadow-lg rounded-lg">
+                <mat-card-title class="px-3 pt-3">
+                    Pay with Card
+                </mat-card-title>
+
+                <mat-card-content class="px-3">
+
+                    <!-- Card Number -->
+                    <div class="form-group mb-3">
+                        <label>Card Number</label>
+                        <input type="text" class="form-control" placeholder="1234 5678 9012 3456" />
+                    </div>
+
+                    <!-- Name on Card -->
+                    <div class="form-group mb-3">
+                        <label>Card Holder Name</label>
+                        <input type="text" class="form-control" placeholder="Rahul Kumar" />
+                    </div>
+
+                    <div class="row">
+                        <!-- Expiry -->
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label>Expiry (MM/YY)</label>
+                                <input type="text" class="form-control" placeholder="08/28" />
+                            </div>
+                        </div>
+
+                        <!-- CVV -->
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label>CVV</label>
+                                <input type="password" class="form-control" placeholder="***" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Types -->
+                    <div class="d-flex justify-content-between mt-2">
+                        <i class="fa fa-cc-visa fa-2x text-primary"></i>
+                        <i class="fa fa-cc-mastercard fa-2x text-danger"></i>
+                        <i class="fa fa-cc-amex fa-2x text-info"></i>
+                        <i class="fa fa-credit-card fa-2x text-secondary"></i>
+                    </div>
+
+                </mat-card-content>
+
+                <mat-card-actions class="d-flex justify-content-end px-3 pb-3">
+                    <button mat-stroked-button class="mr-2" routerLink="">Cancel</button>
+                    <button mat-raised-button color="primary">
+                        Pay 
+                    </button>
+                </mat-card-actions>
+
+            </mat-card>
+
+        </div>
+    </div>
+</div>

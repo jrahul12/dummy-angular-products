@@ -1,0 +1,55 @@
+<div class="container mt-5" *ngIf="product">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <mat-card class="shadow-lg rounded-lg">
+
+                <mat-card-header class="d-flex align-items-center justify-content-between w-100">
+                    <div class="d-flex align-items-center">
+                        <span class="badge mr-2" [ngClass]="{
+                'badge-success': product.rating.rate >= 3,
+                'badge-warning': product.rating.rate >= 2 && product.rating.rate < 3,
+                'badge-danger': product.rating.rate < 2
+              }">
+                            {{ product.rating.rate }}
+                        </span>
+                        <small class="text-muted">({{ product.rating.count }})</small>
+                    </div>
+
+                    <h1 class="text-danger m-0" routerLink="" style="cursor: pointer;"> <strong>×</strong> </h1>
+                </mat-card-header>
+
+                <mat-card-title class="px-3 pt-2 font-weight-bold">
+                    {{ product.title }}
+                </mat-card-title>
+                <mat-card-subtitle class="px-3 text-uppercase text-muted">
+                    {{ product.category }}
+                </mat-card-subtitle>
+
+                <div class="d-flex justify-content-center p-3">
+                    <img mat-card-image [src]="product.image" alt="{{ product.title }}"
+                        style="max-height: 300px; object-fit: contain;" />
+                </div>
+
+                <mat-card-content class="px-3">
+                    <h3 class="text-success">
+                        ₹ {{ product.price }}
+                    </h3>
+                    <p class="text-secondary">
+                        {{ product.description }}
+                    </p>
+                </mat-card-content>
+                <mat-card-actions class="d-flex justify-content-end px-3 pb-3">
+                    <button class="btn btn-warning" (click)="addToCart()">
+                        Add To Cart
+                    </button>
+                    <button mat-stroked-button class="btn-success" [routerLink]="['/buy']">
+                        Buy Now
+                    </button>
+                </mat-card-actions>
+
+            </mat-card>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <mat-card class="shadow-lg rounded-lg">
+                <mat-card-title class="px-3 pt-3">
+                    Pay with Net Banking
+                </mat-card-title>
+
+                <mat-card-content class="px-3">
+
+                    <!-- Popular Banks -->
+                    <div class="mb-3">
+                        <h6 class="mb-2">Popular Banks</h6>
+
+                        <div class="d-flex flex-wrap">
+                            <div class="bank-item p-2 border rounded mr-2 mb-2">SBI</div>
+                            <div class="bank-item p-2 border rounded mr-2 mb-2">HDFC</div>
+                            <div class="bank-item p-2 border rounded mr-2 mb-2">ICICI</div>
+                            <div class="bank-item p-2 border rounded mr-2 mb-2">Axis</div>
+                            <div class="bank-item p-2 border rounded mr-2 mb-2">PNB</div>
+                        </div>
+                    </div>
+
+                    <!-- All Banks Dropdown -->
+                    <div class="form-group mt-3">
+                        <label>Select Your Bank</label>
+                        <select class="form-control">
+                            <option value="">-- Choose Bank --</option>
+                            <option>SBI</option>
+                            <option>HDFC Bank</option>
+                            <option>ICICI Bank</option>
+                            <option>Axis Bank</option>
+                            <option>Kotak Bank</option>
+                            <option>Bank of Baroda</option>
+                            <option>Canara Bank</option>
+                        </select>
+                    </div>
+
+                </mat-card-content>
+
+                <mat-card-actions class="d-flex justify-content-end px-3 pb-3">
+                    <button mat-stroked-button class="mr-2" routerLink="">Cancel</button>
+                    <button mat-raised-button color="primary">
+                        Proceed to Bank
+                    </button>
+                </mat-card-actions>
+
+            </mat-card>
+
+        </div>
+    </div>
+</div>

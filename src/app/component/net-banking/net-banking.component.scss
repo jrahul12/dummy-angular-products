@@ -1,0 +1,10 @@
+.bank-item {
+    cursor: pointer;
+    min-width: 80px;
+    text-align: center;
+    transition: 0.2s;
+}
+.bank-item:hover {
+    background: #f8f9fa;
+    border-color: #007bff;
+}
