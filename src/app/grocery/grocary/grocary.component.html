@@ -1,0 +1,26 @@
+<div class="container-fluid mt-4">
+    <div class="row g-3">
+        <div *ngFor="let groc of groceryArr" class=" mb-3 col-md-3">
+            <div class="card h-100 shadow-sm border-0">
+
+                <img [src]="groc.image_url || 'assets/no-img.png'" class="card-img-top p-3"
+                    style="height:170px; object-fit:contain;" alt="">
+
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-title mb-1 text-truncate" title="{{groc.product_name}}">
+                        {{ groc.product_name || 'No Name' }}
+                    </h6>
+
+                    <p class="card-text text-muted small mb-3">
+                        {{ groc.brands || 'Unknown Brand' }}
+                    </p>
+
+                    <button class="btn btn-sm btn-outline-primary mt-auto w-100">
+                        View Details
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

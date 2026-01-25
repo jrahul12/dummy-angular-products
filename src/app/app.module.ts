@@ -26,6 +26,18 @@ import { NetBankingComponent } from './component/net-banking/net-banking.compone
 import { CashComponent } from './component/cash/cash.component';
 import { CartComponent } from './component/cart/cart.component';
 import { ConfirmComponent } from './component/confirm/confirm.component';
+import { MatMenuModule } from "@angular/material/menu";
+import { MatTabsModule } from "@angular/material/tabs";
+import { OptionsComponent } from './component2/options/options.component';
+import { BeautyComponent } from './component2/beauty/beauty.component';
+import { SingleBeautyComponent } from './component2/single-beauty/single-beauty.component';
+import { SingleMobileComponent } from './component2/single-mobile/single-mobile.component';
+import { MobileComponent } from './component2/mobile/mobile.component';
+import { LaptopComponent } from './component2/laptop/laptop.component';
+import { LaptopSingleComponent } from './component2/laptop-single/laptop-single.component';
+import { GrocaryComponent } from './grocery/grocary/grocary.component';
+import { CartsComponent } from './component2/carts/carts.component';
+import { MatBadgeModule } from "@angular/material/badge";
 
 @NgModule({
   declarations: [
@@ -41,7 +53,16 @@ import { ConfirmComponent } from './component/confirm/confirm.component';
     NetBankingComponent,
     CashComponent,
     CartComponent,
-    ConfirmComponent
+    ConfirmComponent,
+    OptionsComponent,
+    BeautyComponent,
+    SingleBeautyComponent,
+    SingleMobileComponent,
+    MobileComponent,
+    LaptopComponent,
+    LaptopSingleComponent,
+    GrocaryComponent,
+    CartsComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +76,10 @@ import { ConfirmComponent } from './component/confirm/confirm.component';
     MatProgressBarModule,
     MatDividerModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    MatMenuModule,
+    MatTabsModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

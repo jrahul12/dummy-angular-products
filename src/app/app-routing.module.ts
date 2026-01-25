@@ -8,6 +8,14 @@ import { DebitComponent } from './component/debit/debit.component';
 import { NetBankingComponent } from './component/net-banking/net-banking.component';
 import { UpiComponent } from './component/upi/upi.component';
 import { CartComponent } from './component/cart/cart.component';
+import { BeautyComponent } from './component2/beauty/beauty.component';
+import { SingleBeautyComponent } from './component2/single-beauty/single-beauty.component';
+import { MobileComponent } from './component2/mobile/mobile.component';
+import { SingleMobileComponent } from './component2/single-mobile/single-mobile.component';
+import { LaptopComponent } from './component2/laptop/laptop.component';
+import { LaptopSingleComponent } from './component2/laptop-single/laptop-single.component';
+import { GrocaryComponent } from './grocery/grocary/grocary.component';
+import { CartsComponent } from './component2/carts/carts.component';
 
 const routes: Routes = [
   {
@@ -45,6 +53,38 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent
+  },
+  {
+    path: 'beauty',
+    component: BeautyComponent
+  },
+  {
+    path: 'beauty/:id',
+    component: SingleBeautyComponent
+  },
+  {
+    path: 'mobile',
+    component: MobileComponent
+  },
+  {
+    path: 'mobile/:id',
+    component: SingleMobileComponent
+  },
+  {
+    path: 'laptop',
+    component: LaptopComponent
+  },
+  {
+    path: 'laptop/:id',
+    component: LaptopSingleComponent
+  },
+  {
+    path: 'grocery',
+    component: GrocaryComponent
+  },
+  {
+    path: 'carts',
+    component: CartsComponent
   }
 ];
 
