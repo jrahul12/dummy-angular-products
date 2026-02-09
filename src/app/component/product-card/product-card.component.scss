@@ -1,10 +1,20 @@
-.img-box {
-  width: 120px;
-  height: 220px;
+.product-card {
+  border-radius: 14px;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
 
-.img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; 
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.img-wrapper img {
+  max-height: 170px;
+  object-fit: contain;
+  transition: 0.3s ease;
+}
+
+.product-card:hover .img-wrapper img {
+  transform: scale(1.08);
 }

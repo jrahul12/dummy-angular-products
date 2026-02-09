@@ -1,0 +1,31 @@
+.cart-card {
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.product-card {
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+}
+
+.img-wrap {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: #fafafa;
+}
+
+.img-wrap img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}

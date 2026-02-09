@@ -4,10 +4,11 @@
 
 export const environment = {
   production: false,
-  BASE_URL:`https://fakestoreapi.com`,
-  BEAUTY:`https://dummyjson.com`,
-  MOBILE:`https://dummyjson.com/products`,
-  GROCERY:`https://world.openfoodfacts.org/api/v2`
+  BASE_URL: `https://fakestoreapi.com`,
+  BEAUTY: `https://dummyjson.com`,
+  MOBILE: `https://dummyjson.com/products`,
+  GROCERY: `https://world.openfoodfacts.org/api/v2`,
+  AMAZON: `//amazon-node-nine.vercel.app/api/products `
 };
 
 /*

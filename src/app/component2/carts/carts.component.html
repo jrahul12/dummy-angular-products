@@ -1,25 +1,28 @@
 <div class="container mt-4">
-    <div class="row" *ngFor="let cart of cartArr">
+    <div class="row g-4 mb-5" *ngFor="let cart of cartArr">
         <div class="col-12">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-header d-flex justify-content-between">
-                    <strong>Cart ID: {{ cart.id }}</strong>
-                    <span class="text-muted">Items: {{ cart.products.length }}</span>
+            <div class="card cart-card border-0">
+                <div class="card-header bg-white d-flex justify-content-between align-items-center">
+                    <strong>Cart #{{ cart.id }}</strong>
+                    <span class="badge bg-primary">Items: {{ cart.products.length }}</span>
                 </div>
 
                 <div class="card-body">
                     <div class="row g-3">
-                        <div class="col-md-4" *ngFor="let p of cart.products">
-                            <div class="border rounded p-2 h-100">
-                                <img [src]="p.thumbnail" class="img-fluid mb-2"
-                                    style="height: 120px; object-fit: cover; width: 100%;" alt="" />
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-3" *ngFor="let p of cart.products">
+                            <div class="card product-card h-100 border-0 mb-3">
+                                <div class="img-wrap">
+                                    <img [src]="p.thumbnail" alt="{{ p.title }}" />
+                                </div>
 
-                                <h6 class="mb-1">{{ p.title }}</h6>
-                                <p class="mb-1">Price: ₹{{ p.price }}</p>
-                                <p class="mb-1">Qty: {{ p.quantity }}</p>
-                                <p class="mb-1 text-success">
-                                    Discounted: ₹{{ p.discountedTotal }}
-                                </p>
+                                <div class="card-body p-2">
+                                    <h6 class="fw-semibold text-truncate mb-1">{{ p.title }}</h6>
+                                    <p class="small m-0">Price: ₹{{ p.price }}</p>
+                                    <p class="small m-0">Qty: {{ p.quantity }}</p>
+                                    <p class="small text-success fw-semibold m-0">
+                                        ₹{{ p.discountedTotal }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

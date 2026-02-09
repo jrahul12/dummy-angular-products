@@ -16,6 +16,8 @@ import { LaptopComponent } from './component2/laptop/laptop.component';
 import { LaptopSingleComponent } from './component2/laptop-single/laptop-single.component';
 import { GrocaryComponent } from './grocery/grocary/grocary.component';
 import { CartsComponent } from './component2/carts/carts.component';
+import { LoginComponent } from './login-folder/login/login.component';
+import { SignUpComponent } from './login-folder/sign-up/sign-up.component';
 
 const routes: Routes = [
   {
@@ -85,6 +87,14 @@ const routes: Routes = [
   {
     path: 'carts',
     component: CartsComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'signUp',
+    component: SignUpComponent
   }
 ];
 

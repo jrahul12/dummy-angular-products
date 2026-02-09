@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from 'src/app/model/product';
 import { SnackbarService } from 'src/app/services/snackbar.service';
+import { ConfirmComponent } from '../confirm/confirm.component';
 
 @Component({
   selector: 'app-product-single-card',
@@ -16,7 +18,8 @@ export class ProductSingleCardComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private http: HttpClient,
-    private _snackBar:SnackbarService
+    private _snackBar: SnackbarService,
+    private _matDailog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -28,14 +31,39 @@ export class ProductSingleCardComponent implements OnInit {
         this.product = res;
       });
   }
-
   addToCart() {
-    const cartObj = {
-      product: this.product,
-      qty: 1
-    };
+    let dailog = this._matDailog.open(ConfirmComponent, {
+      width: '400px',
+      disableClose: true
+    })
+    dailog.afterClosed().subscribe((input: boolean) => {
+      if (input) {
+        let cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
-    localStorage.setItem('cart', JSON.stringify(cartObj));
-    this._snackBar.snackBar(`Product Added To Cart SuccessFully`)
+        if (!Array.isArray(cart)) {
+          cart = [];
+        }
+
+        const item = {
+          product: this.product,
+          qty: 1
+        };
+
+        const existing = cart.find(
+          (c: any) => c.product.id == this.product.id
+        );
+
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push(item);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+        this._snackBar.snackBar(`Cart Added SuccessFully!!`)
+      }
+    })
   }
+
+
 }

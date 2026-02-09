@@ -38,6 +38,8 @@ import { LaptopSingleComponent } from './component2/laptop-single/laptop-single.
 import { GrocaryComponent } from './grocery/grocary/grocary.component';
 import { CartsComponent } from './component2/carts/carts.component';
 import { MatBadgeModule } from "@angular/material/badge";
+import { LoginComponent } from './login-folder/login/login.component';
+import { SignUpComponent } from './login-folder/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { MatBadgeModule } from "@angular/material/badge";
     LaptopComponent,
     LaptopSingleComponent,
     GrocaryComponent,
-    CartsComponent
+    CartsComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,8 @@ import { MatBadgeModule } from "@angular/material/badge";
     MatCardModule,
     MatMenuModule,
     MatTabsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

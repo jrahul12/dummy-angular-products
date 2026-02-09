@@ -1,55 +1,58 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
-    <a class="navbar-brand" href="#">Shop</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-4">
+    <a class="navbar-brand fw-bold text-primary" routerLink="/">
+        <i class="fa fa-shopping-bag me-2"></i>Shop
+    </a>
 
-
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+    <button class="navbar-toggler" (click)="onShow()" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" [ngClass]="{'show':isShow}" id="navbarSupportedContent">
 
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link" routerLink="all"> Products</a>
+                <a class="nav-link fw-semibold" routerLink="all">Products</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="grocery">Grocery</a>
+                <a class="nav-link fw-semibold" routerLink="grocery">Grocery</a>
             </li>
         </ul>
 
-        <form class="mx-auto d-flex" style="width: 40%;">
-            <input class="form-control mr-2" type="search" placeholder="Search products" [(ngModel)]="searchVal"
-                (ngModelChange)="onSearch()" name="search" />
-
-            <button class="btn btn-outline-primary" type="button">
-                <i class="fa fa-search"></i>
-
-            </button>
+        <form class="d-flex mx-auto" style="width: 35%;">
+            <div class="input-group rounded-pill overflow-hidden shadow-sm">
+                <input *ngIf="!isSearch" class="form-control border-0" type="search" placeholder="Search products..."
+                    [(ngModel)]="searchVal" (ngModelChange)="onSearch()" name="search" />
+                <button class="btn btn-primary px-4" type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
         </form>
-        <i class="fas fa-shopping-cart fa-2x ml-3 mr-3" style="cursor: pointer;" [routerLink]="['/cart']"></i>
 
+        <div class="position-relative mx-3">
+            <i class="fas fa-shopping-cart fa-lg text-dark" style="cursor: pointer;" (click)="onShowCart()"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                3
+            </span>
+        </div>
 
-        <i style="cursor: pointer;" class="fa-solid fa-user-circle fa-2x cursor-pointer" [matMenuTriggerFor]="menu">
-        </i>
+        <i class="fa-solid fa-user-circle fa-2x text-secondary" style="cursor: pointer;" [matMenuTriggerFor]="menu"></i>
 
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="login">
                 <mat-icon>person_add</mat-icon>
                 <span>Add New User</span>
             </button>
 
-            <button mat-menu-item>
+            <button mat-menu-item routerLink="signUp">
                 <mat-icon>account_box</mat-icon>
                 <span>Sign Up</span>
             </button>
 
-            <button routerLink="cart" mat-menu-item>
+            <button mat-menu-item routerLink="cart">
                 <mat-icon>add_shopping_cart</mat-icon>
                 <span>Your Cart</span>
             </button>
         </mat-menu>
-
-
     </div>
 </nav>

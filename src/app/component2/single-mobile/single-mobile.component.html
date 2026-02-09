@@ -29,7 +29,9 @@
                         <small class="text-success">{{ product.discountPercentage }}% OFF</small>
 
                         <div class="mt-4">
-                            <button class="btn btn-warning mr-2" routerLink="/cart">Add to Cart</button>
+                            <button class="btn btn-warning mr-2" (click)="addToCart()">
+                                Add to Cart
+                            </button>
                             <button class="btn btn-success" routerLink="/buy">Buy Now</button>
                             <button class="btn btn-link ml-2" routerLink="/mobile">Back</button>
                         </div>

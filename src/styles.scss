@@ -1,11 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
-
 html,
 body {
     height: 100%;
 }
+
 body {
     margin: 0;
-    font-family: Roboto, "Helvetica Neue", sans-serif;
-    background-color: #ededed;
+    font-family: "Inter", Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(180deg, #f7f9fc, #eceff5);
+    color: #1f2937;
+}
+
+/* Smooth UI feel */
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.card {
+    border-radius: 14px;
+}
+
+.btn {
+    border-radius: 999px;
+}
+
+.form-control {
+    border-radius: 999px;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #0d6efd;
 }

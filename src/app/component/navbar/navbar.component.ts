@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FilterService } from 'src/app/services/filter.service';
 
 @Component({
@@ -8,7 +9,13 @@ import { FilterService } from 'src/app/services/filter.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private _search: FilterService) { }
+  constructor(private _search: FilterService,
+    private _router:Router
+  ) { }
+
+  isShow: boolean = false
+
+  isSearch: boolean = false
 
   ngOnInit(): void {
   }
@@ -17,5 +24,13 @@ export class NavbarComponent implements OnInit {
 
   onSearch() {
     this._search.search$.next(this.searchVal)
+  }
+
+  onShow() {
+    this.isShow = !this.isShow
+  }
+
+  onShowCart(){
+    this._router.navigate(['cart'])
   }
 }

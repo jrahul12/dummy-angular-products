@@ -1,22 +1,21 @@
 <div class="container-fluid mt-5">
-    <div class="row">
-        <div class="col-md-3 mb-4" *ngFor="let mobile of mobileArr">
-            <div [routerLink]="['/mobile',mobile.id]" class="card h-100 shadow-sm" style="cursor: pointer;">
-                <img [src]="mobile.thumbnail" class="card-img-top p-3" style="height: 180px; object-fit: contain;"
-                    alt="" />
-
-                <div class="card-body">
-                    <h6 class="card-title">{{ mobile.title }}</h6>
-                    <p class="text-muted m-0">{{ mobile.brand }}</p>
-
-                    <div class="d-flex justify-content-between align-items-center mt-2">
-                        <strong>₹ {{ mobile.price }}</strong>
-                        <span class="badge badge-success">★ {{ mobile.rating }}</span>
-                    </div>
+    <div class="row g-4">
+        <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6" *ngFor="let mobile of mobileArr">
+            <div class="card mobile-card h-100 border-0" style="cursor: pointer;" [routerLink]="['/mobile', mobile.id]">
+                <div class="img-wrap">
+                    <img [src]="mobile.thumbnail" alt="{{ mobile.title }}" />
                 </div>
 
-                <div class="card-footer bg-white border-0">
-                    <button class="btn btn-sm btn-primary btn-block" [routerLink]="['/mobile',mobile.id]">
+                <div class="card-body d-flex flex-column">
+                    <h6 class="fw-semibold text-truncate mb-1">{{ mobile.title }}</h6>
+                    <p class="text-muted small m-0">{{ mobile.brand }}</p>
+
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        <strong class="text-primary">₹ {{ mobile.price }}</strong>
+                        <span class="badge bg-success">★ {{ mobile.rating }}</span>
+                    </div>
+
+                    <button class="btn btn-sm btn-primary mt-auto w-100 mt-3">
                         View Details
                     </button>
                 </div>

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { IProduct } from 'src/app/model/product';
 import { SnackbarService } from 'src/app/services/snackbar.service';
 import { ConfirmComponent } from '../confirm/confirm.component';
+import { CartService } from 'src/app/service2/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -11,60 +12,65 @@ import { ConfirmComponent } from '../confirm/confirm.component';
 })
 export class CartComponent implements OnInit {
 
-  product!: IProduct;
-  qty: number = 1;
+  cartArr: any[] = [];
+  total = 0;
 
-  constructor(private _snackBar: SnackbarService,
-    private _matDailog: MatDialog
+  constructor(private cartService: CartService,
+    private _matDailog: MatDialog,
+    private _snackBar: SnackbarService
   ) { }
 
-  ngOnInit() {
-    const stored = localStorage.getItem('cart');
+  ngOnInit(): void {
+    this.loadCart();
+  }
+  loadCart() {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
 
-    if (stored) {
-      const data = JSON.parse(stored);
-      this.product = data.product;
-      this.qty = data.qty;
+    if (!Array.isArray(cart)) {
+      cart = [];
     }
+
+    this.cartArr = cart;
+    this.calculateTotal();
   }
 
-  increase() {
-    this.qty++;
+
+  increase(item: any) {
+    item.qty += 1;
     this.saveCart();
   }
 
-  decrease() {
-    if (this.qty > 1) {
-      this.qty--;
+  decrease(item: any) {
+    if (item.qty > 1) {
+      item.qty -= 1;
       this.saveCart();
     }
   }
 
-  remove() {
-    let dialog = this._matDailog.open(ConfirmComponent, {
+  remove(item: any) {
+    let dailog = this._matDailog.open(ConfirmComponent, {
       width: '400px',
       disableClose: true
     })
-    dialog.afterClosed().subscribe((input: boolean) => {
+    dailog.afterClosed().subscribe((input: boolean) => {
       if (input) {
-        localStorage.removeItem('cart');
-        this.product = undefined as any;
-        this.qty = 1;
-        this._snackBar.snackBar(`Product Removed SuccessFully`)
+        this.cartArr = this.cartArr.filter(i => i.product.id !== item.product.id);
+        this.saveCart();
+        this._snackBar.snackBar(`Item Removed SuccessFully!!`)
       }
     })
-
   }
 
   saveCart() {
-    const cartObj = {
-      product: this.product,
-      qty: this.qty
-    };
-    localStorage.setItem('cart', JSON.stringify(cartObj));
+    localStorage.setItem('cart', JSON.stringify(this.cartArr));
+    this.calculateTotal();
   }
 
-  get total() {
-    return (this.product.price * this.qty).toFixed(2);
+  calculateTotal() {
+    this.total = this.cartArr.reduce(
+      (sum, item) => sum + item.product.price * item.qty,
+      0
+    );
   }
+
 }

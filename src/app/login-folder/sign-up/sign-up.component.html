@@ -1,0 +1,39 @@
+<div class="container min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="col-xl-4 col-lg-5 col-md-6">
+        <div class="card border-0 shadow-lg rounded-4 p-3">
+            <div class="card-body">
+                <h4 class="text-center fw-bold mb-4 text-primary">Create Account</h4>
+
+                <form #signUpForm="ngForm">
+                    <div class="form-group mb-3">
+                        <label class="small text-muted">Username</label>
+                        <input type="text" ngModel name="userName" #userName="ngModel" required
+                            class="form-control rounded-pill px-3" placeholder="Enter username" />
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="small text-muted">Email</label>
+                        <input type="text" ngModel name="email" #email="ngModel" required
+                            class="form-control rounded-pill px-3" placeholder="Enter email" />
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="small text-muted">Phone</label>
+                        <input type="text" ngModel name="PhoneNo" #PhoneNo="ngModel" required
+                            class="form-control rounded-pill px-3" placeholder="Enter phone number" />
+                    </div>
+
+                    <div class="form-group mb-4">
+                        <label class="small text-muted">Password</label>
+                        <input type="password" ngModel name="Password" #Password="ngModel" required
+                            class="form-control rounded-pill px-3" placeholder="Create password" />
+                    </div>
+
+                    <button class="btn btn-primary w-100 rounded-pill py-2 fw-semibold">
+                        Sign Up
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

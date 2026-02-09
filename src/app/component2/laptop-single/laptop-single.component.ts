@@ -10,7 +10,6 @@ import { LaptopService } from 'src/app/services/laptop.service';
 })
 export class LaptopSingleComponent implements OnInit {
 
-
   product!: ILaptop;
   id!: number;
 
@@ -32,6 +31,33 @@ export class LaptopSingleComponent implements OnInit {
     this.laptopService.fetchById(id).subscribe(res => {
       this.product = res;
     });
+  }
+
+  addToCart() {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    if (!Array.isArray(cart)) {
+      cart = [];
+    }
+
+    const item = {
+      id: this.product.id,
+      image: this.product.thumbnail,
+      product: this.product,
+      qty: 1
+    };
+
+    const existing = cart.find(
+      (c: any) => c.id == this.product.id
+    );
+
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push(item);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
 }

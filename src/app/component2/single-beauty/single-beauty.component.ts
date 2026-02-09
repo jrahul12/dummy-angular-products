@@ -17,7 +17,7 @@ export class SingleBeautyComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private beautyService: BeautyService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -33,4 +33,32 @@ export class SingleBeautyComponent implements OnInit {
       this.product = res;
     });
   }
+
+  addToCart() {
+    let cart = JSON.parse(localStorage.getItem('cart') || '[]');
+
+    if (!Array.isArray(cart)) {
+      cart = [];
+    }
+
+    const item = {
+      product: this.product,
+      qty: 1,
+      type: 'beauty'  
+    };
+
+    const existing = cart.find(
+      (c: any) => c.product.id == this.product.id
+    );
+
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push(item);
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+
 }
